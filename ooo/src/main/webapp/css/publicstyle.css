@@ -1,0 +1,24 @@
+@charset "UTF-8";
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select { margin:0; padding:0; }
+em { font-style:normal; }
+li { list-style:none; }
+a { text-decoration:none; }
+img { border:none; vertical-align:top; }
+table { border-collapse:collapse; }
+input,textarea { outline:none; }
+textarea { resize:none; overflow:auto; }
+body { font-size:12px; font-family:"微软雅黑"; }
+/* 公共样式 */
+.clear { zoom:1; }
+.clear:after { content:''; display:block; clear:both; }
+.fl { float:left; }
+.fr { float:right; }
+/*渐变*/
+.gradient {
+	background:-moz-linear-gradient(top, #FFFFFF, #E4DEDE);
+	background:-webkit-linear-gradient(top, #FFFFFF, #E4DEDE);
+	background:-ms-linear-gradient(top, #FFFFFF, #E4DEDE);
+	background:linear-gradient(top, #FFFFFF, #E4DEDE);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#FFFFFF, endColorstr=#E4DEDE)";
+	+background:#E4DEDE;
+}

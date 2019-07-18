@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    ">
+    <context:component-scan base-package="com.crx.service"></context:component-scan>
+	<!-- 1.加载数据库文件 -->
+	<context:property-placeholder location="classpath:db.properties"/>
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+	   <property name="driverClassName" value="${jdbc.driver}"></property>
+	   <property name="url" value="${jdbc.url}"></property>
+	   <property name="username" value="${jdbc.username}"></property>
+	   <property name="password" value="${jdbc.password}"></property>
+	</bean>
+	<!-- 3.配置MyBatis中的SqlSessionFactory  -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+   <property name="dataSource" ref="dataSource"></property>
+   <property name="typeAliasesPackage" value="com.crx.pojo"></property>
+
+</bean>
+<!-- 4.配置自动扫描Mapper -->
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+  <property name="basePackage" value="com.crx.mapper"></property>
+  <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+</bean>
+<!-- 5.配置事务 -->
+<tx:annotation-driven transaction-manager="transactionManager"/>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	   <property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!--  <tx:advice id="txa">
+	  <tx:attributes>
+	     <tx:method name="insert*" propagation="REQUIRED"/>
+	     <tx:method name="update*" propagation="REQUIRED"/>
+	     <tx:method name="delete*" propagation="REQUIRED"/>
+	  </tx:attributes>
+	</tx:advice>-->
+	<!-- 6.配置AOP -->
+	<!--<aop:config>
+	  <aop:pointcut expression="execution(* com.bin.service.*.*(..))" id="pc"/>
+	  <aop:advisor advice-ref="txa" pointcut-ref="pc"/>
+	</aop:config> -->
+</beans>
