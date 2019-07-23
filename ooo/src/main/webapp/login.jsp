@@ -1,14 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="com.crx.util.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>登录</title>
+<link type="text/css" rel="stylesheet" href="webapp/css/publicstyle.css">
+<link type="text/css" href="webapp/css/login.css" rel="stylesheet">
 </head>
 
 <body>
-11112222
+    <h1>登录页面----${message }</h1>  
+    <img alt="" src="/static/img/1.jpg">  
+    <form:form action="/login" commandName="user" method="post">  
+        用户名：<form:input path="username"/> <form:errors path="username" cssClass="error"/> <br/>  
+        密 &nbsp;&nbsp;码：<form:password path="password"/> <form:errors path="password" cssClass="error" /> <br/>  
+        <form:button name="button">submit</form:button>  
+    </form:form>  
+<!--  
+<form action="" method="post">
+	<input type="text" name="username" placeholder="用户名" ><br>
+	<input type="password" name="password" placeholder="密码" ><br>
+	<input type="button" id="login_btn"><br>
+</form> -->
 </body>
 <script type="text/javascript">
 	$(function() {
