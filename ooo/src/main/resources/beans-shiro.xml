@@ -10,6 +10,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
  <!-- 配置权限管理器 -->  
+ 	<bean id="myRealm" class="com.crx.realm.MyRealm"></bean>
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">    
         <!-- ref对应我们写的realm  MyShiro -->  
         <property name="realm" ref="myRealm"/>    

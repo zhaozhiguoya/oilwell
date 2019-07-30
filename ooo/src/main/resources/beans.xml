@@ -51,4 +51,6 @@
 	  <aop:pointcut expression="execution(* com.bin.service.*.*(..))" id="pc"/>
 	  <aop:advisor advice-ref="txa" pointcut-ref="pc"/>
 	</aop:config> -->
+	<!-- 关联Shiro -->
+	<import resource="beans-shiro.xml"/>
 </beans>

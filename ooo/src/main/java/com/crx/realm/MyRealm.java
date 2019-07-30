@@ -16,7 +16,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
-@Resource(name = "myRealm")
+
 public class MyRealm extends AuthorizingRealm{
 
 	@Override
