@@ -11,5 +11,10 @@
     <table tableName="role_permission"></table>
     <table tableName="user_role"></table>
     <table tableName="permission"></table>
+    <table tableName="cost"></table>
+    <table tableName="perforation"></table>
+    <table tableName="notice"></table>
+    <table tableName="test"></table>
+    <table tableName="stock"></table>
   </context>
 </generatorConfiguration>

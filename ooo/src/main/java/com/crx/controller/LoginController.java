@@ -26,7 +26,7 @@ public class LoginController {
 	    /** 
 	     * 用户登录 
 	     */  
-	    @RequestMapping(value="/login", method=RequestMethod.POST)  
+	    @RequestMapping(value="login", method=RequestMethod.POST)  
 	    public String login(HttpServletRequest request){  
 	        String resultPageURL = InternalResourceViewResolver.FORWARD_URL_PREFIX + "/";  
 	        String username = request.getParameter("username");  
@@ -44,7 +44,7 @@ public class LoginController {
 	            System.out.println("对用户[" + username + "]进行登录验证..验证开始");  
 	            currentUser.login(token);  
 	            System.out.println("对用户[" + username + "]进行登录验证..验证通过");  
-	            resultPageURL = "main";  
+	            resultPageURL = "../main";  
 	        }catch(UnknownAccountException uae){  
 	            System.out.println("对用户[" + username + "]进行登录验证..验证未通过,未知账户");  
 	            request.setAttribute("message_login", "未知账户");  

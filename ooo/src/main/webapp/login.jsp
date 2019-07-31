@@ -14,11 +14,11 @@
 <div id="title">
   油气井数据管理系统
   </div>
-	<form action="UserServlet?flag=login" method="post">
+	<form action="${pageContext.request.contextPath}/LoginController/login.action" method="post">
 		<input type="text" placeholder="用户名" name="username" value=""/><br /> 
 		<input type="password" placeholder="密码"  name="password"  value=""/><br /> 
 		
-			<div id="message">${message }</div>
+			<div id="message">${message_login }</div>
 			<input type="submit" value="登    录" class="btn" />
 	</form>
 </body>
