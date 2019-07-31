@@ -9,9 +9,10 @@
  
 </head>
 <body>
- 
-<jsp:include page="head.jsp"></jsp:include>
+<!--<jsp:include page="head.jsp"></jsp:include>
 <section></section>
+-->
+首页
 
 </body>
 </html>
