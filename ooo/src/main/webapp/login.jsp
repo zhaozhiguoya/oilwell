@@ -14,7 +14,7 @@
 <div id="title">
   油气井数据管理系统
   </div>
-	<form action="${pageContext.request.contextPath}/LoginController/login.action" method="post">
+	<form action="${pageContext.request.contextPath}/mydemo/login.action" method="post">
 		<input type="text" placeholder="用户名" name="username" value=""/><br /> 
 		<input type="password" placeholder="密码"  name="password"  value=""/><br /> 
 		

@@ -28,10 +28,10 @@ public class LoginController {
 	     */  
 	    @RequestMapping(value="login", method=RequestMethod.POST)  
 	    public String login(HttpServletRequest request){  
-	        String resultPageURL = InternalResourceViewResolver.FORWARD_URL_PREFIX + "/";  
+	        String resultPageURL = InternalResourceViewResolver.FORWARD_URL_PREFIX + "../";  
 	        String username = request.getParameter("username");  
 	        String password = request.getParameter("password");  
-	 
+	        System.out.println(username+"............"+password);
 	        UsernamePasswordToken token = new UsernamePasswordToken(username, password);  
 	        token.setRememberMe(true);  
 	        System.out.println("为了验证登录用户而封装的token为" + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));  
@@ -44,7 +44,7 @@ public class LoginController {
 	            System.out.println("对用户[" + username + "]进行登录验证..验证开始");  
 	            currentUser.login(token);  
 	            System.out.println("对用户[" + username + "]进行登录验证..验证通过");  
-	            resultPageURL = "../main";  
+	            resultPageURL = "../index.jsp";  
 	        }catch(UnknownAccountException uae){  
 	            System.out.println("对用户[" + username + "]进行登录验证..验证未通过,未知账户");  
 	            request.setAttribute("message_login", "未知账户");  
@@ -76,7 +76,7 @@ public class LoginController {
 	    /** 
 	     * 用户登出 
 	     */  
-	    @RequestMapping("/logout")  
+	    @RequestMapping("logout")  
 	    public String logout(HttpServletRequest request){  
 	         SecurityUtils.getSubject().logout();  
 	         return InternalResourceViewResolver.REDIRECT_URL_PREFIX + "/";  
