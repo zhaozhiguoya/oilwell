@@ -22,12 +22,12 @@
             </tr>
         </thead>
         <tbody>
-        	<c:forEach var="adminUserList" items="${roadWorkList }">
+        	<c:forEach var="roadWorkList" items="${roadWorkList }">
                 <tr>
-                    <td>${roadWorkList.account}</td>
+                    <td>${roadWorkList.type}</td>
                   
                     <c:choose>
-                    	<c:when test="${roadWorkList.isDisabled}">
+                    	<c:when test="${roadWorkList.isDeleted}">
                     		<td><span class="label label-success radius" style="background-color: red">禁用</span></td>
                     	</c:when>
                     	<c:otherwise>
