@@ -54,12 +54,61 @@
                 </dd>
             </dl>
             </shiro:hasPermission>
+        	<shiro:hasPermission name="/roadwork">
+            <dl id="menu-comments">
+                <dt><i class="Hui-iconfont">&#xe62e;</i> 施工情况<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <shiro:hasPermission name="/roadWork/add.do">
+                        <li><a _href="<%=ctxPath %>/roadWork/add.do" href="javascript:void(0)">施工情况录入</a></li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="/roadWork/list.do">
+                        <li><a _href="<%=ctxPath %>/roadWork/list.do" href="javascript:void(0)">施工情况查询</a></li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="/roadWork/update.do">
+                        <li><a _href="<%=ctxPath %>/roadWork/update.do" href="javascript:void(0)">施工情况修改</a></li>
+                        </shiro:hasPermission>                        
+                                
+                    </ul>
+                </dd>
+            </dl>
+            </shiro:hasPermission>
+        	<shiro:hasPermission name="admin">
+            <dl id="menu-comments">
+                <dt><i class="Hui-iconfont">&#xe62e;</i> 数据统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <shiro:hasPermission name="/adminUser/list.do">
+                        <li><a _href="<%=ctxPath %>/adminUser/list.do" href="javascript:void(0)">射孔队</a></li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="/role/list.do">
+                        <li><a _href="<%=ctxPath %>/role/list.do" href="javascript:void(0)">测试队</a></li>
+                        </shiro:hasPermission>                   
+                    </ul>
+                </dd>
+            </dl>
+            </shiro:hasPermission>
+        	<shiro:hasPermission name="admin">
+            <dl id="menu-comments">
+                <dt><i class="Hui-iconfont">&#xe62e;</i> 在线文件<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <shiro:hasPermission name="/adminUser/list.do">
+                        <li><a _href="<%=ctxPath %>/adminUser/list.do" href="javascript:void(0)">公司文件</a></li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="/role/list.do">
+                        <li><a _href="<%=ctxPath %>/role/list.do" href="javascript:void(0)">规章制度</a></li>
+                        </shiro:hasPermission>                   
+                    </ul>
+                </dd>
+            </dl>
+            </shiro:hasPermission>
             
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe60d;</i> 商业合作<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
                     <ul>
-                        <li><a _href="<%=ctxPath %>/welcome.jsp" href="javascript:void(0)">客户管理</a></li>                      
+                        <li><a _href="<%=ctxPath %>/company/list" href="javascript:void(0)">客户管理</a></li>                      
                     </ul>
                 </dd>
             </dl>
