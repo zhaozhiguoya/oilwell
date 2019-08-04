@@ -59,7 +59,7 @@
                 <dt><i class="Hui-iconfont">&#xe60d;</i> 商业合作<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
                     <ul>
-                        <li><a _href="<%=ctxPath %>/company/list" href="javascript:void(0)">客户管理</a></li>                      
+                        <li><a _href="<%=ctxPath %>/welcome.jsp" href="javascript:void(0)">客户管理</a></li>                      
                     </ul>
                 </dd>
             </dl>
