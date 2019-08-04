@@ -1,5 +1,8 @@
 package com.crx.realm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -17,41 +20,45 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 
+import com.crx.pojo.User;
+import com.crx.service.userService;
+import com.crx.service.userServiceImpl;
+
 public class MyRealm extends AuthorizingRealm{
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 授权
 	    //获取当前登录的用户名,等价于(String)principals.fromRealm(this.getName()).iterator().next()  
         String currentUsername = (String)super.getAvailablePrincipal(principals);  
-//      List<String> roleList = new ArrayList<String>();  
-//      List<String> permissionList = new ArrayList<String>();  
-//      //从数据库中获取当前登录用户的详细信息  
-//      User user = userService.getByUsername(currentUsername);  
-//      if(null != user){  
-//          //实体类User中包含有用户角色的实体类信息  
-//          if(null!=user.getRoles() && user.getRoles().size()>0){  
-//              //获取当前登录用户的角色  
-//              for(Role role : user.getRoles()){  
-//                  roleList.add(role.getName());  
-//                  //实体类Role中包含有角色权限的实体类信息  
-//                  if(null!=role.getPermissions() && role.getPermissions().size()>0){  
-//                      //获取权限  
-//                      for(Permission pmss : role.getPermissions()){  
-//                          if(!StringUtils.isEmpty(pmss.getPermission())){  
-//                              permissionList.add(pmss.getPermission());  
-//                          }  
-//                      }  
-//                  }  
-//              }  
-//          }  
-//      }else{  
-//          throw new AuthorizationException();  
-//      }  
-//      //为当前用户设置角色和权限  
-//      SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();  
-//      simpleAuthorInfo.addRoles(roleList);  
-//      simpleAuthorInfo.addStringPermissions(permissionList);  
+      List<String> roleList = new ArrayList<String>();  
+      List<String> permissionList = new ArrayList<String>();  
+      //从数据库中获取当前登录用户的详细信息  
+      User user = new userServiceImpl().findByName(currentUsername);  
+      if(null != user){  
+          //实体类User中包含有用户角色的实体类信息  
+          if(null!=user.getRole() && user.getRoles().size()>0){  
+              //获取当前登录用户的角色  
+              for(Role role : user.getRoles()){  
+                  roleList.add(role.getName());  
+                  //实体类Role中包含有角色权限的实体类信息  
+                  if(null!=role.getPermissions() && role.getPermissions().size()>0){  
+                      //获取权限  
+                      for(Permission pmss : role.getPermissions()){  
+                          if(!StringUtils.isEmpty(pmss.getPermission())){  
+                              permissionList.add(pmss.getPermission());  
+                          }  
+                      }  
+                  }  
+              }  
+          }  
+      }else{  
+          throw new AuthorizationException();  
+      }  
+      //为当前用户设置角色和权限  
+      SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();  
+      simpleAuthorInfo.addRoles(roleList);  
+      simpleAuthorInfo.addStringPermissions(permissionList);  
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();  
         //实际中可能会像上面注释的那样从数据库取得  
         if(null!=currentUsername && "papio".equals(currentUsername)){  

@@ -2,11 +2,12 @@ package com.crx.service;
 
 import com.crx.pojo.User;
 
-public class userService {
+public interface userService {
 
-	public static User findByName(String loginName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	void insert(User user);
+	void delete(int id);
+	void update(User user);
+	User findById(int id);
+	User findByName(String name);
 }
