@@ -353,7 +353,6 @@
     	select 
     	<include refid="Base_List" />
     	from roadwork
- 		   	where isDeleted=false
 	    	limit #{currPage},#{pageSize}
     </select>
 

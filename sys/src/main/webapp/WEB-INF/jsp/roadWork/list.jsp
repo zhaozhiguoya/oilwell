@@ -16,7 +16,13 @@
     <table class="table table-border table-bordered table-bg table-hover">
         <thead>
             <tr>
+            	<th>编号</th>
                 <th>队号</th>
+                <th>队长</th>
+                <th>类型</th>
+                <th>车辆信息</th>
+                <th>时间</th>
+                <th>备注</th>
                 <th>状&nbsp;&nbsp;态</th>
                 <th>操&nbsp;&nbsp;作&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn size-MINI btn-secondary radius" onclick="window.location='adminUserAdd'"> 添加</button></th>
             </tr>
@@ -24,17 +30,19 @@
         <tbody>
         	<c:forEach var="roadWorkList" items="${roadWorkList }">
                 <tr>
+                    <td>${roadWorkList.id}</td>
+                    <td>${roadWorkList.tid}</td>
+                    <td>${roadWorkList.captain}</td>
                     <td>${roadWorkList.type}</td>
-                  
-                    <c:choose>
-                    	<c:when test="${roadWorkList.isDeleted}">
-                    		<td><span class="label label-success radius" style="background-color: red">禁用</span></td>
-                    	</c:when>
-                    	<c:otherwise>
-                    		<td><span class="label label-success radius">已启用</span></td>
-                    	</c:otherwise>
-                    </c:choose>
-                    
+                    <td>${roadWorkList.car}</td>
+                    <td>${roadWorkList.time}</td>
+                    <td>${roadWorkList.demo}</td>
+                    <td>${roadWorkList.state}</td>
+                  	<td><shiro:hasPermission name="/roadWork/delete.do">
+                        <button class="btn size-MINI btn-danger radius" onclick="adminUserDel(${roadWorkList.id})">删除</button>&nbsp;                        
+                        </shiro:hasPermission>
+                    </td>
+                  <!-- 
                     <td>
                         <shiro:hasPermission name="/adminUser/delete.do">
                         <button class="btn size-MINI btn-danger radius" onclick="adminUserDel(${roadWorkList.id})">删除</button>&nbsp;                        
@@ -49,6 +57,7 @@
                         <button class="btn size-MINI btn-warning radius" onclick="window.location='updateDisabled.do?id=${roadWorkList.id}'">禁用/启用</button>
                         </shiro:hasPermission>
                     </td>
+                     -->
                 </tr>
              </c:forEach>  
 

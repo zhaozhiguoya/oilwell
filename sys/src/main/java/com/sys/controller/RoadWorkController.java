@@ -1,5 +1,8 @@
 package com.sys.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +26,7 @@ public class RoadWorkController {
 	@RequestMapping("list.do")
 	public String toList(HttpServletRequest request,
 			@RequestParam(value="currPage",required=false) Long curr,
-			@RequestParam(value="pageSize",required=false) Long pageSize){
+			@RequestParam(value="pageSize",required=false) Long pageSize) throws ParseException{
 	if(curr==null){
 	curr=1L;
 	}
@@ -37,6 +40,13 @@ public class RoadWorkController {
 	totalPage = count%pageSize==0?count/pageSize:(count/pageSize)+1;
 	}
 	List<Roadwork> roadWorkList = roadWorkService.selectByPage(currPage, pageSize);
+	for(Roadwork rod:roadWorkList) {
+		Date time = rod.getTime();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		java.sql.Date sd;
+		sd = new java.sql.Date(time.getTime());
+		rod.setTime(sd);
+	}
 	request.setAttribute("roadWorkList", roadWorkList);
 	request.setAttribute("count", count);
 	request.setAttribute("totalPage", totalPage);
