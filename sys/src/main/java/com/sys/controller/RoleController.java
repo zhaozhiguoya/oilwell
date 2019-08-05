@@ -56,7 +56,7 @@ public class RoleController {
 	* @return
 	* @throws  
 	* @author lao
-	* @Date 2018年1月4日下午2:11:03
+	* @Date 2019年8月4日下午2:11:03
 	* @version 1.00
 	 */
 	@RequestMapping("list.do")
@@ -88,8 +88,8 @@ public class RoleController {
 	* @Description: 添加角色页面-跳转
 	* @return
 	* @throws  
-	* @author lao
-	* @Date 2018年1月4日下午2:09:39
+	* @author fangzx
+	* @Date 2019年8月4日下午2:09:39
 	* @version 1.00
 	 */
 	@RequestMapping("roleAdd")
@@ -129,8 +129,8 @@ public class RoleController {
 	* @param attr
 	* @return
 	* @throws  
-	* @author lao
-	* @Date 2018年1月11日下午2:42:04
+	* @author fangzx
+	* @Date 2019年8月4日下午2:42:04
 	* @version 1.00
 	 */
 	@RequestMapping("delete.do")
@@ -156,8 +156,8 @@ public class RoleController {
 	* @param roleID
 	* @return
 	* @throws  
-	* @author lao
-	* @Date 2018年1月11日下午2:41:35
+	* @author libd
+	* @Date 2019年8月4日下午2:42:04
 	* @version 1.00
 	 */
 	@RequestMapping("updateRole.do")
@@ -190,8 +190,8 @@ public class RoleController {
 	* @param pids
 	* @return
 	* @throws  
-	* @author lao
-	* @Date 2018年1月8日下午2:17:22
+	* @author libd
+	* @Date @Date 2019年8月4日下午2:42:04
 	* @version 1.00
 	 */
 	@RequestMapping("goRolePermission")
@@ -257,8 +257,8 @@ public class RoleController {
 	* @param pids
 	* @return resultMap
 	* @throws  
-	* @author lao
-	* @Date 2018年1月8日下午2:16:55
+	* @author fangzx
+	* @Date @Date 2019年8月4日下午2:42:04
 	* @version 1.00
 	 */
 	@SuppressWarnings("unchecked")

@@ -98,7 +98,10 @@
                         </shiro:hasPermission>
                         <shiro:hasPermission name="/role/list.do">
                         <li><a _href="<%=ctxPath %>/role/list.do" href="javascript:void(0)">规章制度</a></li>
-                        </shiro:hasPermission>                   
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="/file/turnUpload.do">
+                        <li><a _href="<%=ctxPath %>/file/turnUpload.do" href="javascript:void(0)">文件上传</a></li>
+                        </shiro:hasPermission>                      
                     </ul>
                 </dd>
             </dl>
