@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	上传成功
+	上传成功!
 </body>
 </html>
