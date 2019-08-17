@@ -18,10 +18,11 @@
     
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>  
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/sys_test?characterEncoding=UTF8&amp;allowMultiQueries=true"/>
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>  
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/sys_test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
+"/>
         <property name="user" value="root"/>  
-        <property name="password" value="root"/>  
+        <property name="password" value="1234"/>  
         <property name="maxPoolSize" value="100"/>  
         <property name="minPoolSize" value="10"/>  
         <property name="maxIdleTime" value="60"/>  
@@ -31,6 +32,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="mapperLocations" value="classpath:com/sys/mapper/*.xml"></property>
 	</bean>
 	
 	<!-- mybatis mapper接口自动扫描、自动代理 -->
@@ -66,6 +68,14 @@
     <!-- 开启spring aop 注解支持，要想aop真正生效，还需要把切面类配置成bean -->
     <aop:aspectj-autoproxy/>
 
+	<!-- 文件上传解析 -->
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    
+     	<property name="defaultEncoding" value="utf-8"></property>    
+     	<property name="maxUploadSize" value="5242440"></property>    
+	</bean>
+
+	
 	
  	
 </beans>		                    

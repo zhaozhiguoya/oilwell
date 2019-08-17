@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE HTML>
 <html>
 <head>
 <%@include file="/WEB-INF/jsp/header.jsp" %>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+
 <link href="<%=ctxPath %>/skin/default/skin.css" rel="stylesheet" type="text/css" id="skin" />
        
 <title>油气井后台管理系统</title>
@@ -36,7 +37,7 @@
         <input runat="server" id="divScrollValue" type="hidden" value="" />
         <div class="menu_dropdown bk_2">
         	
-        	<shiro:hasPermission name="admin">
+        	<shiro:hasRole name="超级管理员">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -53,8 +54,10 @@
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasPermission>
-        	<shiro:hasPermission name="/roadwork">
+            </shiro:hasRole>
+            
+           <!-- <shiro:hasRole name="超级管理员" > --> 
+            <shiro:hasAnyRoles name="超级管理员,施工管理员">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 施工情况<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -72,8 +75,10 @@
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasPermission>
-        	<shiro:hasPermission name="admin">
+            </shiro:hasAnyRoles>
+           <!-- </shiro:hasRole> --> 
+            
+        	<shiro:hasRole name="超级管理员">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 数据统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -87,8 +92,9 @@
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasPermission>
-        	<shiro:hasPermission name="admin">
+            </shiro:hasRole>
+            
+        	<shiro:hasRole name="超级管理员">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 在线文件<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -105,7 +111,7 @@
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasPermission>
+            </shiro:hasRole>
             
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe60d;</i> 商业合作<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>

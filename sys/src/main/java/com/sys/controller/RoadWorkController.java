@@ -35,18 +35,23 @@ public class RoadWorkController {
 	}
 	Long currPage = (curr-1)*pageSize;
 	Long count = roadWorkService.selectCount();
+	System.out.println("总数："+count);
 	Long totalPage = 0L;
 	if(count>0){
 	totalPage = count%pageSize==0?count/pageSize:(count/pageSize)+1;
 	}
 	List<Roadwork> roadWorkList = roadWorkService.selectByPage(currPage, pageSize);
-	for(Roadwork rod:roadWorkList) {
-		Date time = rod.getTime();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		java.sql.Date sd;
-		sd = new java.sql.Date(time.getTime());
-		rod.setTime(sd);
+	//List<Roadwork> roadWorkList = roadWorkService.selectByPage(currPage, pageSize);
+	for(Roadwork r : roadWorkList) {
+		System.out.println(r);
 	}
+//	for(Roadwork rod:roadWorkList) {
+//		Date time = rod.getTime();
+//		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		java.sql.Date sd;
+//		sd = new java.sql.Date(time.getTime());
+//		rod.setTime(sd);
+//	}
 	request.setAttribute("roadWorkList", roadWorkList);
 	request.setAttribute("count", count);
 	request.setAttribute("totalPage", totalPage);

@@ -37,10 +37,7 @@
 	           	/lib/**=anon
 	           	/nodel/**=anon
 	           	/WEB-INF/jsp/**=anon
-	           	/adminUserLogin/**=anon
-	           	
-	   
-	           	
+	           	/adminUserLogin/**=anon           	
 	           	/**/submitLogin.do=anon
 	            /**=user,kickout
 	        </value>

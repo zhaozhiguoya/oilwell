@@ -18,11 +18,11 @@ import com.sys.service.AdminUserService;
 
 
 /**  
-* Copyright (C),2017, Guangzhou sys info. Co., Ltd.
+* Copyright (C),2019, Guangzhou sys info. Co., Ltd.
 * @ClassName: RememberMeFilter  
 * @Description: 实现RememberMe过滤器
 * @author lao  
-* @date 2018年1月12日上午11:58:40  
+* @date 2019年8月3日上午11:58:40  
 * @version 1.00 
 */
 public class RememberMeFilter extends FormAuthenticationFilter {

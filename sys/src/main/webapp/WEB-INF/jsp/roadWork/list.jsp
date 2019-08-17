@@ -17,13 +17,18 @@
         <thead>
             <tr>
             	<th>编号</th>
-                <th>队号</th>
-                <th>队长</th>
-                <th>类型</th>
-                <th>车辆信息</th>
-                <th>时间</th>
-                <th>备注</th>
-                <th>状&nbsp;&nbsp;态</th>
+                <th>层位</th>
+                <th>层号</th>
+                <th>布孔方式</th>
+                <th>射孔方式</th>
+                <th>射孔井段(m)</th>
+                <th>厚度(m)</th>
+                <th>孔密(孔/m)</th>
+                <th>孔数</th>
+                <th>射孔弹型号</th>
+                <th>总厚度</th>
+                <th>总孔数</th>
+                <th>枪型弹型</th>
                 <th>操&nbsp;&nbsp;作&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn size-MINI btn-secondary radius" onclick="window.location='adminUserAdd'"> 添加</button></th>
             </tr>
         </thead>
@@ -31,13 +36,18 @@
         	<c:forEach var="roadWorkList" items="${roadWorkList }">
                 <tr>
                     <td>${roadWorkList.id}</td>
-                    <td>${roadWorkList.tid}</td>
-                    <td>${roadWorkList.captain}</td>
-                    <td>${roadWorkList.type}</td>
-                    <td>${roadWorkList.car}</td>
-                    <td>${roadWorkList.time}</td>
-                    <td>${roadWorkList.demo}</td>
-                    <td>${roadWorkList.state}</td>
+                    <td>${roadWorkList.layerPlace}</td>
+                    <td>${roadWorkList.layerId}</td>
+                    <td>${roadWorkList.holeWay}</td>
+                    <td>${roadWorkList.perforationWay}</td>
+                    <td>${roadWorkList.perforationWellSection}</td>
+                    <td>${roadWorkList.perforationThick}</td>
+                    <td>${roadWorkList.holeDensity}</td>
+                    <td>${roadWorkList.holeCount}</td>
+                    <td>${roadWorkList.bulletType}</td>
+                    <td>${roadWorkList.deepAll}</td>
+                    <td>${roadWorkList.holeAll}</td>
+                    <td>${roadWorkList.gunBulletType}</td>
                   	<td><shiro:hasPermission name="/roadWork/delete.do">
                         <button class="btn size-MINI btn-danger radius" onclick="adminUserDel(${roadWorkList.id})">删除</button>&nbsp;                        
                         </shiro:hasPermission>

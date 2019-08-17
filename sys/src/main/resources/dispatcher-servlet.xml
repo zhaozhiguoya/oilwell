@@ -16,6 +16,19 @@
                         http://www.springframework.org/schema/tx 
                         http://www.springframework.org/schema/tx/spring-tx.xsd">
                         
+                        
+                        
+    <bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	
+	
     <!-- 配置扫描spring注解时扫描的包，同时也开启了spring注解支持 -->
 	<context:component-scan base-package="com.sys" />
 

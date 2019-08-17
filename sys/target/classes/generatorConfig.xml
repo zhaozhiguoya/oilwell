@@ -6,6 +6,9 @@
     <javaModelGenerator targetPackage="com.sys.pojo" targetProject="sys\src\main\java" />
     <sqlMapGenerator targetPackage="com.sys.mapper" targetProject="sys\src\main\java" />
     <javaClientGenerator targetPackage="com.sys.mapper" targetProject="sys\src\main\java" type="XMLMAPPER" />
-    <table schema="" tableName="file"></table>
+    <table schema="" tableName="roadwork"></table>
+    <table schema="" tableName="well_info"></table>
+    <table schema="" tableName="perforation_notice"></table>
+    
   </context>
 </generatorConfiguration>
