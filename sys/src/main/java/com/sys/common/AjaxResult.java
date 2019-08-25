@@ -2,16 +2,12 @@ package com.sys.common;
 
 /**
 
-* Copyright (C),2017, Guangzhou ChangLing info. Co., Ltd.
+* Copyright , Guangzhou ChangLing info. Co., Ltd.
 
 * FileName: AjaxResult.java
 
 * JSON返回通用类
 
-* @author hey
-    * @Date    2017年11月24日 下午2:52:52
-
-* @version 1.00
 
 */
 public class AjaxResult {
@@ -39,9 +35,6 @@ public class AjaxResult {
     * @param resultCode 响应码
     * @param resultMessage 提示信息
     * @return
-    * @author hey
-    * @Date    2017年11月24日下午2:53:21
-    * @version 1.00
     */
     public static AjaxResult returnResult(String resultCode,String resultMessage) {
         return new AjaxResult(resultCode, resultMessage);
@@ -51,10 +44,6 @@ public class AjaxResult {
     * Ajax返回成功，同时返回移动端需要的数据
     * @param resultMessage 成功提示信息
     * @param data 移动端需要的数据
-    * @return
-    * @author hey
-    * @Date    2017年11月24日下午2:53:42
-    * @version 1.00
     */
     public static AjaxResult successInstance(String resultMessage,Object data){
     	return new AjaxResult("200",resultMessage,data);
