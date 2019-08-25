@@ -29,7 +29,7 @@
                 <th>总厚度</th>
                 <th>总孔数</th>
                 <th>枪型弹型</th>
-                <th>操&nbsp;&nbsp;作&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn size-MINI btn-secondary radius" onclick="window.location='adminUserAdd'"> 添加</button></th>
+                <th>操&nbsp;&nbsp;作&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn size-MINI btn-secondary radius" onclick="window.location='add.do'"> 添加</button></th>
             </tr>
         </thead>
         <tbody>
@@ -49,7 +49,7 @@
                     <td>${roadWorkList.holeAll}</td>
                     <td>${roadWorkList.gunBulletType}</td>
                   	<td><shiro:hasPermission name="/roadWork/delete.do">
-                        <button class="btn size-MINI btn-danger radius" onclick="adminUserDel(${roadWorkList.id})">删除</button>&nbsp;                        
+                        <button class="btn size-MINI btn-danger radius" onclick="roadWorkDel(${roadWorkList.id})">删除</button>&nbsp;                        
                         </shiro:hasPermission>
                     </td>
                   <!-- 
@@ -111,7 +111,7 @@
 			    </form>
 		</div>  
             
-<script type="text/javascript" src="<%=ctxPath %>/js/adminUser.js"></script>
+<script type="text/javascript" src="<%=ctxPath %>/js/roadWork.js"></script>
 
 </body>
 </html>
