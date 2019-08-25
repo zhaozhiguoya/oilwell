@@ -108,7 +108,7 @@
 		SELECT DISTINCT p.permission FROM t_permissions p
 		WHERE p.id IN 
 			(SELECT r.permissionId FROM t_rolePermissions r
-				WHERE EXISTS 
+				WHERE r.roleId =
 				(SELECT a.roleId FROM t_adminUserRoles a
 			    	WHERE a.adminUserId = #{adminUserId}))
  	</select>

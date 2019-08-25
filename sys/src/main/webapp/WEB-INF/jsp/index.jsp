@@ -37,7 +37,7 @@
         <input runat="server" id="divScrollValue" type="hidden" value="" />
         <div class="menu_dropdown bk_2">
         	
-        	<shiro:hasRole name="超级管理员">
+        	<shiro:hasPermission name="admin">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -54,10 +54,10 @@
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasRole>
+            </shiro:hasPermission>
             
-           <!-- <shiro:hasRole name="超级管理员" > --> 
-            <shiro:hasAnyRoles name="超级管理员,施工管理员">
+
+            <shiro:hasPermission name="admin">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 施工情况<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -70,15 +70,14 @@
                         </shiro:hasPermission>
                         <shiro:hasPermission name="/roadWork/update.do">
                         <li><a _href="<%=ctxPath %>/roadWork/update.do" href="javascript:void(0)">施工情况修改</a></li>
-                        </shiro:hasPermission>                        
-                                
+                        </shiro:hasPermission>                                
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasAnyRoles>
-           <!-- </shiro:hasRole> --> 
+            </shiro:hasPermission>
+
             
-        	<shiro:hasRole name="超级管理员">
+        	<shiro:hasPermission name="admin">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 数据统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -92,9 +91,9 @@
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasRole>
+            </shiro:hasPermission>
             
-        	<shiro:hasRole name="超级管理员">
+        	<shiro:hasPermission name="admin">
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe62e;</i> 在线文件<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                 <dd>
@@ -111,7 +110,7 @@
                     </ul>
                 </dd>
             </dl>
-            </shiro:hasRole>
+            </shiro:hasPermission>
             
             <dl id="menu-comments">
                 <dt><i class="Hui-iconfont">&#xe60d;</i> 商业合作<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
