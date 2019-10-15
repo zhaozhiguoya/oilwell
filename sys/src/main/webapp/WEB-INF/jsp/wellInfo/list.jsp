@@ -9,7 +9,7 @@
 #updatePassword{box-shadow: 10px 10px 5px #888888;top:30%;left:29%;position:fixed;z-index:111;width:470px;height:220px;display: none;border:1px solid #0080ff;background:#fff;}
 .formControls{width: 80%;}
 </style>
-<title>施工情况列表</title>
+<title>井信息列表</title>
 </head>
 <body>
 <div class="pd-20">

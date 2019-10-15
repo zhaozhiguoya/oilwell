@@ -14,6 +14,11 @@
 			$(".box").css({"display":"none"});
 		});
 	}
+	/*print*/
+	function roadWorkPrint(id){
+		//alert(id);
+		window.location="print.do?id="+id+"";
+	}
 		
 	/**分页*/
 	function nextPage(currPage,pageSize){	
@@ -54,11 +59,12 @@
 		var deep_all = jQuery("#deep_all").val();   //double
 		var hole_all = jQuery("#hole_all").val();   //int
 		var gun_bullet_type = jQuery("#gun_bullet_type").val();  
-		if(layer_place==null||layer_palce==""){
+		if(layer_place==null||layer_place==""){
 			layer.msg('层位不能为空！');
 			return false;
 		}
 		if(layer_id==null||layer_id==""){
+
 			layer.msg('层号不能为空！');
 			return false;
 		}

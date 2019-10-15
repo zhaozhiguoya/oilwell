@@ -55,7 +55,8 @@ public class LoginController{
 	 */
 	@RequestMapping(value="/submitLogin.do",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> submitLogin(String um,String pw,boolean rememberMe,HttpServletRequest request){		
+	public Map<String,Object> submitLogin(String um,String pw,boolean rememberMe,HttpServletRequest request){
+		logger.info("登录者ip-------------"+getIpAddr(request));
 		Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(um,ShiroUtils.getStrByMD5(pw));                     
         try{       	
@@ -65,6 +66,7 @@ public class LoginController{
         	logger.info("------------------身份认证成功-------------------");
         	resultMap.put("status", 200);
 			resultMap.put("message", "登录成功！");
+			
         } catch (DisabledAccountException dax) {  
             logger.info("用户名为:" + um + " 用户已经被禁用！");
             resultMap.put("status", 500);
@@ -96,7 +98,20 @@ public class LoginController{
 		}
 		return resultMap;
 	}
-	
+	//获取登录者ip
+	public static String getIpAddr(HttpServletRequest request) { 
+		 String ip = request.getHeader("x-forwarded-for"); 
+		 if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+		 ip = request.getHeader("Proxy-Client-IP"); 
+		 }
+		 if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+		 ip = request.getHeader("WL-Proxy-Client-IP"); 
+		 }
+		 if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
+		 ip = request.getRemoteAddr(); 
+		 }
+		 return ip;
+	} 
 	
 	/**
 	* @Description: 退出

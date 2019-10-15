@@ -30,8 +30,11 @@ public class JedisUtils {
 
     private static JedisPool jedisPool = new JedisPool("localhost");
 
+    private static Jedis jedis = null;
+    
+    private static String pw = "123456";
+    
     private JedisUtils() {
-
     }
 
     /**
@@ -55,9 +58,9 @@ public class JedisUtils {
     */
     public static void sadd(String key, String... members) {
         //redis操作发生异常时要把异常捕获，不要响应正常的业务逻辑
-        Jedis jedis = null;
         try {
             jedis = getJedis();
+            jedis.auth(pw);
             jedis.sadd(key, members);
             logger.debug("sadd：向缓存中添加数据，key：{} value：{}", key, members);
         } catch (Exception e) {
@@ -78,10 +81,10 @@ public class JedisUtils {
     */
     @SuppressWarnings("unchecked")
     public static Set<String> smembersAndDel(String key) {
-        Jedis jedis = null;
         Set<String> set = null;
         try {
             jedis = getJedis();
+            jedis.auth(pw);
             Transaction tx = jedis.multi();
             tx.smembers(key);
             tx.del(key);
@@ -112,9 +115,9 @@ public class JedisUtils {
     * @version 1.00
     */
     public static void setex(String key, int expire, String value) {
-        Jedis jedis = null;
         try {
             jedis = getJedis();
+            jedis.auth(pw);
             jedis.setex(key, expire, value);
             logger.debug("setex：向缓存中添加数据，key：{}，value：{}，过期时间：{}秒", key, value, expire);
         } catch (Exception e) {
@@ -134,10 +137,10 @@ public class JedisUtils {
     * @version 1.00
     */
     public static String get(String key) {
-        Jedis jedis = null;
         String value = null;
         try {
             jedis = getJedis();
+            jedis.auth(pw);
             value = jedis.get(key);
             logger.debug("get：从缓存中获取数据，key：{}，value：{}", key, value);
         } catch (Exception e) {
@@ -158,9 +161,9 @@ public class JedisUtils {
     * @version 1.00
     */
     public static void set(String key, String value){
-        Jedis jedis = null;
         try {
             jedis = getJedis();
+            jedis.auth(pw);
             jedis.set(key, value);
             logger.debug("set：向缓存中添加数据，key：{}，value：{}", key, value);
         } catch (Exception e) {
@@ -181,6 +184,7 @@ public class JedisUtils {
     */
     public static Long ttl(String key){
     	 Jedis jedis = getJedis();
+    	 jedis.auth(pw);
          Long expire = jedis.ttl(key);
          closeQuietly(jedis);
          return expire;
@@ -195,10 +199,10 @@ public class JedisUtils {
     * @version 1.00
     */
     public static boolean isExist(String key){
-    	 Jedis jedis = null;
          Boolean exist = null;
          try {
              jedis = getJedis();
+             jedis.auth(pw);
              exist = jedis.exists(key);
              if(exist){
              	logger.debug("根据此key:{}，可以在缓存中找到对应的value",key);
@@ -224,9 +228,9 @@ public class JedisUtils {
     * @version 1.00
     */
     public static void del(String keyPattern) {
-        Jedis jedis = null;
         try {
             jedis = getJedis();
+            jedis.auth(pw);
             Set<String> keys = jedis.keys(keyPattern);
             logger.debug("要删除的key为：{}", keys);
 

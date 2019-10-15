@@ -85,6 +85,9 @@
                         <shiro:hasPermission name="/adminUser/list.do">
                         <li><a _href="<%=ctxPath %>/adminUser/list.do" href="javascript:void(0)">射孔队</a></li>
                         </shiro:hasPermission>
+                        <shiro:hasPermission name="/wellInfo/list.do">
+                        <li><a _href="<%=ctxPath %>/wellInfo/list.do">井信息查询</a></li>
+                        </shiro:hasPermission>
                         <shiro:hasPermission name="/role/list.do">
                         <li><a _href="<%=ctxPath %>/role/list.do" href="javascript:void(0)">测试队</a></li>
                         </shiro:hasPermission>                   

@@ -72,6 +72,14 @@ public class RoadWorkController {
 	return "roadWork/list";
 	}
 	
+	@RequestMapping("print.do")
+	public String print(Map<String,Roadwork> map,String id) {
+		Roadwork roadWork = roadWorkService.findById(Integer.parseInt(id));
+		System.err.println(roadWork);
+		map.put("roadwork",roadWork);
+		return "/text/shekongform";
+	}
+	
 	@RequestMapping("delete.do")
 	public String delete(@RequestParam(value="id",required=false) int id,RedirectAttributes attr){
 		try{
